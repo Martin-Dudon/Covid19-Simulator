@@ -1,2 +1,2 @@
-# Troph-sNSI
+# TrophesNSI
 Projet jeu Pygame
