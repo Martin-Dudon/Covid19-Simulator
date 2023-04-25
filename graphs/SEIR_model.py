@@ -1,4 +1,8 @@
 import matplotlib.pyplot as plt
+import csv
+import pandas as pd
+
+
 
 α = 0.2 #rythme de passage de E à I1
 γ1 = 0.133 #rythme de guerison des infections peu sevères
@@ -25,7 +29,12 @@ R = [0] #nb retirés
 β2 = 0.1/N[0]
 β3 = 0.1/N[0]
 
+
+data[data.nom==''][valeur]
+
 def newvalues(n):
+    data = pd.read_csv('data.csv",delimiter = ";", keep_default_na=False)
+    α,γ1,γ2,γ3,p1,p2,μ=data[data.nom=='α'][valeur],data[data.nom=='γ1'][valeur],data[data.nom=='γ2'][valeur],data[data.nom=='γ3'][valeur],data[data.nom=='p1'][valeur],data[data.nom=='p2'][valeur],data[data.nom=='μ'][valeur]
     S.append(S[n]-(β1*I1[n]+β2*I2[n]+β3*I3[n])*S[n])
     E.append(E[n]+(β1*I1[n]+β2*I2[n]+β3*I3[n])*S[n]-α*E[n])
     I1.append(I1[n]+α*E[n]-(γ1+p1)*I1[n])

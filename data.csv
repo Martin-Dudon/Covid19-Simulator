@@ -1,0 +1,12 @@
+nom;valeur;description
+
+α;0.2;"rythme de passage de E à I1"
+γ1;0.133;"rythme de guerison des infections peu sevères"
+γ2;0.125;"rythme de guerison des infections moyennement sevères"
+γ3;0.125;"rythme de guerison des infections très sevères"
+p1;0.033;"taux de passage de I1 à I2"
+p2;0.042;"taux de passage de I2 à I3"
+μ;0.05;"taux de passage de I3 à M"
+β1;0.5/N[0];"Taux de transmission à partir de I1"
+β2;0.1/N[0];"Taux de transmission à partir de I2"
+β3;0.1/N[0];"Taux de transmission à partir de I1"
