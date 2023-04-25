@@ -29,10 +29,10 @@ def tracer():
 
     # Tracé des courbes
     plt.plot(t, S, 'r', label='S : proportion de population saine')
-    #plt.plot(t, E, 'g', label='E :proportion de population infectée non infectieuse')
-    #plt.plot(t, I, 'b', label='I :proportion de population infectée et infectieuse')
+    plt.plot(t, E, 'g', label='E :proportion de population infectée non infectieuse')
+    plt.plot(t, I, 'b', label='I :proportion de population infectée et infectieuse')
     plt.plot(t, R, 'y', label="R :proportion de population retirée parce qu'immunisée")
-    #plt.plot(t, N, 'm', label='N : population rapportée à la population initiale')
+    plt.plot(t, N, 'm', label='N : population rapportée à la population initiale')
 
     # Configuration de l'axe des ordonnées
     plt.ylim(0, 1.1)
@@ -48,4 +48,4 @@ def tracer():
     # Affichage du graphique
     plt.show()
 
-#tracer()
+tracer()
