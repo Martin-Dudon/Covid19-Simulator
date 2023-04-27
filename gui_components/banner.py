@@ -32,12 +32,6 @@ def banner(mainapp,l):
     speed_button = tk.Label(frame, text="→", font=("Speed", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
     speed_button.grid(row=0, column=5, ipadx=0.009*l, ipady=0.007*l)
     speed_button.bind("<Button-1>", lambda event: c.speed())
-
-    # Bouton Reload
-    reload_button = tk.Label(frame, text="⟳", font=("Reload", int(0.015*l)),bg="#202020",bd=1, relief="solid")
-    reload_button.grid(row=0, column=6, ipadx=0.009*l, ipady=0.0055*l,padx=10)
-    reload_button.bind("<Button-1>", lambda event: c.restart())
-
     return frame
 
 def compteur(frame,n): 

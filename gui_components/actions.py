@@ -5,8 +5,8 @@ import pandas as pd
 
 def action(mainapp,l):
     #Création du bandeau 
-    actframe = tk.Frame(mainapp, bg="white")
-    actframe.grid(row=3,column=1,sticky="nsew",pady=(0,0.009*l),padx=(0.009*l))
+    actframe = tk.Frame(mainapp, bg="#303030")
+    actframe.grid(row=3,column=1,sticky=tk.W,pady=(0,0.009*l),padx=(0.009*l))
 
     ######################################################################################################      
     depister = tk.Frame(actframe)

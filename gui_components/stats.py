@@ -85,7 +85,7 @@ def updatestats(n,l,U):
     jr_rea = tk.Label(U[4],text=f"{int(I3[n+1]-I3[n])} /jrs", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="red")
     jr_rea.grid(row=2, column=0, pady=(0,0.006*l))
 
-    total_dc= tk.Label(U[5], text="    Décès    ", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="black")
+    total_dc= tk.Label(U[5], text="Décès", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="black")
     total_dc.grid(row=0, column=0,padx=0.0195*l)
     total_dcnb = tk.Label(U[5], text=str(int(D[n])), bg="#202020", font=("Helvetica Neue",int(0.016*l),"bold"), fg="black")
     total_dcnb.grid(row=1, column=0)
@@ -99,7 +99,7 @@ def updatestats(n,l,U):
     jr_assy = tk.Label(U[6],  text=f"{int(I0[n+1]-I0[n])} /jrs", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="#2FC1DE")
     jr_assy.grid(row=2, column=0, pady=(0,0.006*l))
 
-    total_test= tk.Label(U[7], text="     Tests     ", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="purple")
+    total_test= tk.Label(U[7], text="Tests ", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="purple")
     total_test.grid(row=0, column=0,padx=0.0195*l)
     total_testnb = tk.Label(U[7], text=str(int(sum(testing))), bg="#202020", font=("Helvetica Neue",int(0.016*l),"bold"), fg="purple")
     total_testnb.grid(row=1, column=0)
