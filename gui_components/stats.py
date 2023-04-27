@@ -4,7 +4,7 @@ from graphs.SEIR_model import newvalues, t, S, E0,E1, I, I0,I1, I2, I3, D, R,con
 
 def stats(mainapp,l):
     #Création du bandeau supérieur
-    stframe = tk.Frame(mainapp, background="#202020",width=1,height=1)
+    stframe = tk.Frame(mainapp, background="#303030",width=1,height=1)
     stframe.grid(row=1,column=0, columnspan=2)
 
     ######################################################################################################      

@@ -27,7 +27,6 @@ g=grph.graphs_gui(mainapp,l,h)
 def actualisation(n=0):
     global U
     if n%6 == 0:
-        print("caca")
         U=st.stats(mainapp,l)
     if n >= 400:
         return
