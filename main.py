@@ -16,7 +16,7 @@ mainapp.title("SEIR model simulation") # Configure le titre de la fenêtre
 mainapp['bg']="#303030" # Configure la couleur de fond de la fenêtre
 
 frame=bn.banner(mainapp,l)
-
+U=st.stats(mainapp,l)
 a.action(mainapp,l)
 
 # Fonction pour actualiser l'affichage toutes les secondes
@@ -29,7 +29,7 @@ def actualisation(n=0):
     if c.redem == True:
         mainapp.destroy()
     act.updategraph(n,mainapp,l,h,g)
-    st.stats(n,mainapp,l)
+    st.updatestats(n,l,U)
     bn.compteur(frame,n)
     while c.lecture == False:
             mainapp.update() 
