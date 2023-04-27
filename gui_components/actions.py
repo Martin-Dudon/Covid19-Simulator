@@ -23,13 +23,13 @@ def action(mainapp,l):
     quarantaine=tk.IntVar()
     isolated=False
     confin=False
-    checktests = tk.Checkbutton(depister, text=" Mise en place de tests Covid à grande échelle", variable=tests,bg="#202020",command=lambda: depistage() if tests.get() else arretdepistage())
+    checktests = tk.Checkbutton(depister, text=" Mise en place de tests Covid à grande échelle", fg="white",variable=tests,bg="#202020",command=lambda: depistage() if tests.get() else arretdepistage())
     checktests.grid(row=1, column=0,sticky=tk.W,padx=10,pady=12)
-    checkisolmt = tk.Checkbutton(depister, text=" Isolement des personnes positives aux tests", variable=isolmt,bg="#202020",command=lambda: isolement() if isolmt.get() and tests.get() else arretisolement(isolated))
+    checkisolmt = tk.Checkbutton(depister, text=" Isolement des personnes positives aux tests", fg="white",variable=isolmt,bg="#202020",command=lambda: isolement() if isolmt.get() and tests.get() else arretisolement(isolated))
     checkisolmt.grid(row=2, column=0,sticky=tk.W,padx=10,pady=12)
-    checkcontacts = tk.Checkbutton(depister, text=" Recherche des cas contacts de personnes positives", variable=rchrch_contacts,bg="#202020")
+    checkcontacts = tk.Checkbutton(depister, text=" Recherche des cas contacts de personnes positives",fg="white", variable=rchrch_contacts,bg="#202020")
     checkcontacts.grid(row=3, column=0,sticky=tk.W,padx=10,pady=12)
-    checkquarantaine= tk.Checkbutton(depister, text=" Mise en quarantaine des cas et cas contacts", variable=quarantaine,bg="#202020",command=lambda: contagion() if quarantaine.get() and rchrch_contacts.get() else lowcontagion(confin))
+    checkquarantaine= tk.Checkbutton(depister, text=" Mise en quarantaine des cas et cas contacts",fg="white", variable=quarantaine,bg="#202020",command=lambda: contagion() if quarantaine.get() and rchrch_contacts.get() else lowcontagion(confin))
     checkquarantaine.grid(row=4, column=0,sticky=tk.W,padx=10,pady=(10,20))
 
     ######################################################################################################      
@@ -45,13 +45,13 @@ def action(mainapp,l):
     close=tk.IntVar()
     limit_sorties=tk.IntVar()
 
-    checkmask = tk.Checkbutton(redctct, text=" Obligation du port du masque dans les espaces publics", variable=mask,bg="#202020",command=lambda: contagion() if mask.get() else lowcontagion(confin))
+    checkmask = tk.Checkbutton(redctct, text=" Obligation du port du masque dans les espaces publics", fg="white",variable=mask,bg="#202020",command=lambda: contagion() if mask.get() else lowcontagion(confin))
     checkmask.grid(row=1, column=0,sticky=tk.W,padx=10,pady=12)
-    checkgstbarr = tk.Checkbutton(redctct, text=" Sensibilisation aux gestes barrières", variable=gstbarr,bg="#202020",command=lambda: contagion() if gstbarr.get() else lowcontagion(confin))
+    checkgstbarr = tk.Checkbutton(redctct, text=" Sensibilisation aux gestes barrières", fg="white",variable=gstbarr,bg="#202020",command=lambda: contagion() if gstbarr.get() else lowcontagion(confin))
     checkgstbarr.grid(row=2, column=0,sticky=tk.W,padx=10,pady=12)
-    checkclose = tk.Checkbutton(redctct, text=" Fermeture des espaces publics et télétravail", variable=close,bg="#202020",command=lambda: contagion() if close.get() else lowcontagion(confin))
+    checkclose = tk.Checkbutton(redctct, text=" Fermeture des espaces publics et télétravail", fg="white",variable=close,bg="#202020",command=lambda: contagion() if close.get() else lowcontagion(confin))
     checkclose.grid(row=3, column=0,sticky=tk.W,padx=10,pady=12)
-    checklimit_sorties= tk.Checkbutton(redctct, text=" Limitation des sorties non indispensables", variable=limit_sorties,bg="#202020",command=lambda: contagion() if limit_sorties.get() else lowcontagion(confin))
+    checklimit_sorties= tk.Checkbutton(redctct, text=" Limitation des sorties non indispensables", fg="white",variable=limit_sorties,bg="#202020",command=lambda: contagion() if limit_sorties.get() else lowcontagion(confin))
     checklimit_sorties.grid(row=4, column=0,sticky=tk.W,padx=10,pady=(10,20))
 
 

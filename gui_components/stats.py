@@ -47,7 +47,7 @@ def stats(mainapp,l):
     tests.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")    
     tests.grid(row=0, column=7,padx=(0,0.009*l), pady=(0,0.009*l))
 
-    return [cas, contagieux, guerisons, hospitalisés, rea, deces, assymptomatiques, tests]
+    return [cas, contagieux, guerisons, hospitalisés, rea, deces, assymptomatiques, tests,stframe]
 
 def updatestats(n,l,U):
     total_cas = tk.Label(U[0], text="Total des Cas", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"), fg="#F6C82B")

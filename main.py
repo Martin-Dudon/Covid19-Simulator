@@ -16,6 +16,7 @@ mainapp.title("SEIR model simulation") # Configure le titre de la fenêtre
 mainapp['bg']="#303030" # Configure la couleur de fond de la fenêtre
 
 frame=bn.banner(mainapp,l)
+global U
 U=st.stats(mainapp,l)
 a.action(mainapp,l)
 
@@ -24,6 +25,10 @@ a.action(mainapp,l)
 g=grph.graphs_gui(mainapp,l,h)
 
 def actualisation(n=0):
+    global U
+    if n%6 == 0:
+        print("caca")
+        U=st.stats(mainapp,l)
     if n >= 400:
         return
     if c.redem == True:
@@ -31,6 +36,7 @@ def actualisation(n=0):
     act.updategraph(n,mainapp,l,h,g)
     st.updatestats(n,l,U)
     bn.compteur(frame,n)
+
     while c.lecture == False:
             mainapp.update() 
     mainapp.after(int(100/c.sp), actualisation, n+1)
