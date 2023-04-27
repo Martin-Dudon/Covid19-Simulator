@@ -1,0 +1,17 @@
+nom;val;description
+βe;0.000000007142;Taux de transmission e
+β0;0.000000007142;Taux de transmission 0
+β1;0.000000007142;Taux de transmission 1
+β2;0.000000001428;Taux de transmission 2 
+β3;0.000000001428;Taux de transmission 3
+α0;0.333;taux de sortie de E0
+α1;0.5;taux de sortie de E1
+f;0.3; fraction d'individus asymptomatiques
+γ0;0.167;taux de guerison des infections asymptomatiqes
+γ1;0.133;taux de guerison des infections legeres
+γ2;0.125;taux de guerison des infections moyennement sevères
+γ3;0.075;taux de guerison des infections très sevères
+p1;0.033;taux de passage à une infections sevères
+p2;0.042;taux de passage à une infection très sévère
+μ;0.05;taux de mortalité des infections très sévères
+tests;0;politique de tests massifs
