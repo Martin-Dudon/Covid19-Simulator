@@ -1,2 +1,2 @@
-# TrophesNSI
-Projet jeu Pygame
+# Simulation d'épidémie basée sur le modèle SEIR
+
