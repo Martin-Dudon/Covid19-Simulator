@@ -1,0 +1,17 @@
+Le projet utilise le langage de programmation Python avec la bibliothèque tkinter pour créer une interface utilisateur graphique (GUI) 
+et afficher des graphiques SEIR (Susceptible-Exposed-Infected-Recovered) pour simuler un modèle épidémiologique, en fonction des décisions sanitaires prises.
+
+Ce projet requiert certains modules python :
+
+- pandas
+- matplotlib
+
+Le code est divisé en plusieurs fichiers, rassemblés en dossiers :
+
+- Le dossier graphs continent le code relatif au modèle SEIR, ainsi qu'à l'affichage des graphiques
+- Le dossier data contient l'image du logo
+- le dossier archives contient les différents essais que nous avons effectués avant d'arriver au modèleς
+- le dossier gui_components continent les différents éléments de l'interfaces graphique
+- le fichier main gère le fonctionnement global du programme
+
+Les paramètres du modèle SEIR sont stockés dans le fichier data.csv, qui peut être modifié au besoin
