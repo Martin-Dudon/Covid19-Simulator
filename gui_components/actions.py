@@ -11,48 +11,47 @@ def action(mainapp,l):
     ######################################################################################################      
     depister = tk.Frame(actframe)
     depister.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black",bg="#202020")
-    depister.grid(row=0, column=0,sticky="nsew")
+    depister.grid(row=0, column=0,sticky="nsew",ipadx=0.05*l,ipady=0.015*l)
 
 
-    txtdepister = tk.Label(depister, text="Mesures de dépistage", bg="#202020", font=("Helvetica Neue", 15,"underline"), fg="white",width=45)
-    txtdepister.grid(row=0, column=0,padx=10,pady=10)
-    data = pd.read_csv("graphs/data.csv",sep=";")
+    txtdepister = tk.Label(depister, text="Mesures de dépistage", bg="#202020", font=("Helvetica Neue", int(0.012*l),"underline"), fg="white")
+    txtdepister.grid(row=0, column=0,padx=0.009*l,pady=0.015*l,sticky=tk.W)
     tests=tk.IntVar()
     isolmt=tk.IntVar()
     rchrch_contacts=tk.IntVar()
     quarantaine=tk.IntVar()
     isolated=False
     confin=False
-    checktests = tk.Checkbutton(depister, text=" Mise en place de tests Covid à grande échelle", fg="white",selectcolor='black',variable=tests,bg="#202020",command=lambda: depistage() if tests.get() else arretdepistage())
-    checktests.grid(row=1, column=0,sticky=tk.W,padx=10,pady=12)
-    checkisolmt = tk.Checkbutton(depister, text=" Isolement des personnes positives aux tests", fg="white",selectcolor='black',variable=isolmt,bg="#202020",command=lambda: isolement() if isolmt.get() and tests.get() else arretisolement(isolated))
-    checkisolmt.grid(row=2, column=0,sticky=tk.W,padx=10,pady=12)
-    checkcontacts = tk.Checkbutton(depister, text=" Recherche des cas contacts de personnes positives",fg="white",selectcolor='black', variable=rchrch_contacts,bg="#202020")
-    checkcontacts.grid(row=3, column=0,sticky=tk.W,padx=10,pady=12)
-    checkquarantaine= tk.Checkbutton(depister, text=" Mise en quarantaine des cas et cas contacts",fg="white",selectcolor='black', variable=quarantaine,bg="#202020",command=lambda: contagion() if quarantaine.get() and rchrch_contacts.get() else lowcontagion(confin))
-    checkquarantaine.grid(row=4, column=0,sticky=tk.W,padx=10,pady=(10,20))
+    checktests = tk.Checkbutton(depister, text=" Mise en place de tests Covid à grande échelle", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=tests,bg="#202020",command=lambda: depistage() if tests.get() else arretdepistage())
+    checktests.grid(row=1, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
+    checkisolmt = tk.Checkbutton(depister, text=" Isolement des personnes positives aux tests", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=isolmt,bg="#202020",command=lambda: isolement() if isolmt.get() and tests.get() else arretisolement(isolated))
+    checkisolmt.grid(row=2, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
+    checkcontacts = tk.Checkbutton(depister, text=" Recherche des cas contacts de personnes positives",fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)), variable=rchrch_contacts,bg="#202020")
+    checkcontacts.grid(row=3, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
+    checkquarantaine= tk.Checkbutton(depister, text=" Mise en quarantaine des cas et cas contacts",fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)), variable=quarantaine,bg="#202020",command=lambda: contagion() if quarantaine.get() and rchrch_contacts.get() else lowcontagion(confin))
+    checkquarantaine.grid(row=4, column=0,sticky=tk.W,padx=0.009*l,pady=(0.009*l,0.009*l))
 
     ######################################################################################################      
     redctct = tk.Frame(actframe)
     redctct.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black",bg="#202020")
-    redctct.grid(row=1, column=0, sticky="nsew")
+    redctct.grid(row=1, column=0,sticky="nsew",ipadx=0.05*l,ipady=0.015*l)
 
-    txtdredctct= tk.Label(redctct, text="Mesures de réduction des contacts / confinement", bg="#202020", font=("Helvetica Neue", 15,"underline"), fg="white",width=47)
-    txtdredctct.grid(row=0, column=0,padx=10,pady=10)
+    txtdredctct= tk.Label(redctct, text="Mesures de réduction des contacts / confinement", bg="#202020", font=("Helvetica Neue",  int(0.012*l),"underline"), fg="white")
+    txtdredctct.grid(row=0, column=0,padx=0.009*l,pady=0.015*l,sticky=tk.W)
     
     mask=tk.IntVar()
     gstbarr=tk.IntVar()
     close=tk.IntVar()
     limit_sorties=tk.IntVar()
 
-    checkmask = tk.Checkbutton(redctct, text=" Obligation du port du masque dans les espaces publics", fg="white",selectcolor='black',variable=mask,bg="#202020",command=lambda: contagion() if mask.get() else lowcontagion(confin))
-    checkmask.grid(row=1, column=0,sticky=tk.W,padx=10,pady=12)
-    checkgstbarr = tk.Checkbutton(redctct, text=" Sensibilisation aux gestes barrières", fg="white",selectcolor='black',variable=gstbarr,bg="#202020",command=lambda: contagion() if gstbarr.get() else lowcontagion(confin))
-    checkgstbarr.grid(row=2, column=0,sticky=tk.W,padx=10,pady=12)
-    checkclose = tk.Checkbutton(redctct, text=" Fermeture des espaces publics et télétravail", fg="white",selectcolor='black',variable=close,bg="#202020",command=lambda: contagion() if close.get() else lowcontagion(confin))
-    checkclose.grid(row=3, column=0,sticky=tk.W,padx=10,pady=12)
-    checklimit_sorties= tk.Checkbutton(redctct, text=" Limitation des sorties non indispensables", fg="white",selectcolor='black',variable=limit_sorties,bg="#202020",command=lambda: contagion() if limit_sorties.get() else lowcontagion(confin))
-    checklimit_sorties.grid(row=4, column=0,sticky=tk.W,padx=10,pady=(10,20))
+    checkmask = tk.Checkbutton(redctct, text=" Obligation du port du masque dans les espaces publics", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=mask,bg="#202020",command=lambda: contagion() if mask.get() else lowcontagion(confin))
+    checkmask.grid(row=1, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
+    checkgstbarr = tk.Checkbutton(redctct, text=" Sensibilisation aux gestes barrières", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=gstbarr,bg="#202020",command=lambda: contagion() if gstbarr.get() else lowcontagion(confin))
+    checkgstbarr.grid(row=2, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
+    checkclose = tk.Checkbutton(redctct, text=" Fermeture des espaces publics et télétravail", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=close,bg="#202020",command=lambda: contagion() if close.get() else lowcontagion(confin))
+    checkclose.grid(row=3, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
+    checklimit_sorties= tk.Checkbutton(redctct, text=" Limitation des sorties non indispensables", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=limit_sorties,bg="#202020",command=lambda: contagion() if limit_sorties.get() else lowcontagion(confin))
+    checklimit_sorties.grid(row=4, column=0,sticky=tk.W,padx=0.009*l,pady=( 0.009*l, 0.0019*l))
 
 
 

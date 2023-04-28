@@ -7,8 +7,8 @@ import graphs.SEIR_graphs_tk as grph
 import gui_components.click_functions as c
 
 mainapp = tk.Tk()  # Crée une instance de la classe Tk
-l = 1280#mainapp.winfo_screenwidth()#
-h =720 #mainapp.winfo_screenheight()# 
+l = 1000#mainapp.winfo_screenwidth()#
+h =820 #mainapp.winfo_screenheight()# 
 print(l,h)
 
 mainapp.geometry(f"{1280}x{700}+0+0") # Configure la géométrie de la fenêtre # Bloque le redimensionnement de la fenêtre
@@ -26,15 +26,13 @@ g=grph.graphs_gui(mainapp,l,h)
 
 def actualisation(n=0):
     global U
-    if n%6 == 0:
-        U=st.stats(mainapp,l)
     if n >= 400:
         return
     if c.redem == True:
         mainapp.destroy()
     act.updategraph(n,mainapp,l,h,g)
     st.updatestats(n,l,U)
-    bn.compteur(frame,n)
+    bn.compteur(frame,n,l)
 
     while c.lecture == False:
             mainapp.update() 

@@ -26,7 +26,7 @@ def banner(mainapp,l):
     play_button.bind("<Button-1>", lambda event: c.play())
     # Bouton Pause
     pause_button = tk.Label(frame, text="⏸", font=("Pause", int(0.012*l)),bg="#202020",bd=1, relief="solid")
-    pause_button.grid(row=0, column=4, ipadx=0.009*l, ipady=0.007*l,padx=10)
+    pause_button.grid(row=0, column=4, ipadx=0.009*l, ipady=0.007*l,padx=0.009*l)
     pause_button.bind("<Button-1>", lambda event: c.pause())
     # Bouton accelerer
     speed_button = tk.Label(frame, text="→", font=("Speed", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
@@ -34,8 +34,8 @@ def banner(mainapp,l):
     speed_button.bind("<Button-1>", lambda event: c.speed())
     return frame
 
-def compteur(frame,n): 
+def compteur(frame,n,l): 
     label2 = tk.Label(frame,width=7, text=f"Jour {n}",font=("Helvetica Neue", 17,"bold"), fg="grey",bg="#202020")
-    label2.grid(row=0, column=2, padx=10)
+    label2.grid(row=0, column=2, padx=0.009*l)
 
     

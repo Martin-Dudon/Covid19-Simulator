@@ -11,11 +11,11 @@ def graphs_gui(mainapp,l,h):
     grframe.grid(row=3,column=0, padx=(0.009*l,0),sticky="nsew")
     
     # Création du graphique 1
-    fig = plt.Figure(figsize=(6.35, 2), dpi=125)
-    #fig.set_size_inches(7.75, 3)
+    fig = plt.Figure()
+    fig.set_size_inches(l/129,l/400)
     fig.set_facecolor('#202020')
     ax = fig.add_subplot(111)
-    fig.subplots_adjust(bottom = 0.2,left=0.09, right=0.95, top=0.9)
+    #fig.subplots_adjust(bottom = 0.2,left=0.09, right=0.95, top=0.9)
     canvas = FigureCanvasTkAgg(fig, master=grframe)
     canvas.get_tk_widget().configure(highlightbackground="black", highlightthickness=1, highlightcolor="black")
     canvas.get_tk_widget().grid(row=0, column=0,columnspan=2,sticky="nsew")
