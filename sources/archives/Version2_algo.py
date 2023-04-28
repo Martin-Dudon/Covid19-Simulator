@@ -1,3 +1,8 @@
+"""
+
+Avant dernier modèle SEIR réalisé mais paramètres surement incorects et trop complexe donc abandonné
+
+"""
 import matplotlib.pyplot as plt
 
 ε = 1/4.2 # taux de fin de latence

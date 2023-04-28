@@ -1,5 +1,9 @@
+"""
+
+Interface graphique de test du premier alogorithme SEIR
+"""
+
 import pygame
-import threading
 import time
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas

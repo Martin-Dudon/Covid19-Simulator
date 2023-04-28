@@ -1,5 +1,11 @@
 import matplotlib.pyplot as plt
 
+"""
+
+Le premier vrai modèle SEIR que nous avons développé, mais il manquait beaucoup de paramètres et de valeurs de sorties pour notre simulation
+
+"""
+
 beta= 0.2
 alpha= 0.75
 gamma= 0.05

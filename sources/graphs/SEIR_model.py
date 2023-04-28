@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import gui_components.banner as bn
 
-
 """
 Le graphique montre le nombre attendu de personnes infectées, guéries, sensibles ou décédées au fil du temps. 
 Les individus infectés passent d'abord par une phase d'exposition/incubation où ils sont asymptomatiques et non infectieux, 
@@ -48,7 +47,7 @@ conta=[0]
 testing =[0]
 
 # On importe le fichier csv contenant les valeurs des différents paramètres
-data = pd.read_csv("src/graphs/data.csv",sep=";")
+data = pd.read_csv("sources/graphs/data.csv",sep=";")
 
 # La fonction newvalues calcule les valeurs au jour n
 

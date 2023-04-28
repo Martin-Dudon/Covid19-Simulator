@@ -1,27 +1,23 @@
 import tkinter as tk
 from graphs.SEIR_model import data
-import pandas as pd
-
 
 def action(mainapp,l):
     #Création du bandeau 
-    actframe = tk.Frame(mainapp, bg="#303030")
+    actframe = tk.Frame(mainapp)
     actframe.grid(row=3,column=1,sticky=tk.W,pady=(0,0.009*l),padx=(0.009*l))
 
-    ######################################################################################################      
+    #Création du cadre pour les mesures de dépistage  
     depister = tk.Frame(actframe)
     depister.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black",bg="#202020")
     depister.grid(row=0, column=0,sticky="nsew",ipadx=0.05*l,ipady=0.01*l,pady=(0,0.009*l))
 
-
+    #Création du titre des mesures de dépistage
     txtdepister = tk.Label(depister, text="Mesures de dépistage", bg="#202020", font=("Helvetica Neue", int(0.012*l),"underline"), fg="white")
     txtdepister.grid(row=0, column=0,padx=0.009*l,pady=0.015*l,sticky=tk.W)
-    tests=tk.IntVar()
-    isolmt=tk.IntVar()
-    rchrch_contacts=tk.IntVar()
-    quarantaine=tk.IntVar()
-    isolated=False
-    confin=False
+    
+    #Création des différentes cases à cocher
+    tests=isolmt=rchrch_contacts=quarantaine=tk.IntVar()
+    isolated=confin=False
     checktests = tk.Checkbutton(depister, text=" Mise en place de tests Covid à grande échelle", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=tests,bg="#202020",command=lambda: depistage() if tests.get() else arretdepistage())
     checktests.grid(row=1, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
     checkisolmt = tk.Checkbutton(depister, text=" Isolement des personnes positives aux tests", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=isolmt,bg="#202020",command=lambda: isolement() if isolmt.get() and tests.get() else arretisolement(isolated))
@@ -31,19 +27,17 @@ def action(mainapp,l):
     checkquarantaine= tk.Checkbutton(depister, text=" Mise en quarantaine des cas et cas contacts",fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)), variable=quarantaine,bg="#202020",command=lambda: contagion() if quarantaine.get() and rchrch_contacts.get() else lowcontagion(confin))
     checkquarantaine.grid(row=4, column=0,sticky=tk.W,padx=0.009*l,pady=(0.009*l,0.009*l))
 
-    ######################################################################################################      
+    #Création du cadre pour les mesures de réduction des contacts  
     redctct = tk.Frame(actframe)
     redctct.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black",bg="#202020")
     redctct.grid(row=1, column=0,sticky="nsew",ipadx=0.05*l,ipady=0.015*l)
 
+    #Création du titre pour les mesures de réduction des contacts  
     txtdredctct= tk.Label(redctct, text="Mesures de réduction des contacts / confinement", bg="#202020", font=("Helvetica Neue",  int(0.012*l),"underline"), fg="white")
     txtdredctct.grid(row=0, column=0,padx=0.009*l,pady=0.015*l,sticky=tk.W)
     
-    mask=tk.IntVar()
-    gstbarr=tk.IntVar()
-    close=tk.IntVar()
-    limit_sorties=tk.IntVar()
-
+    #Création des différentes cases à cocher
+    mask=gstbarr=close=limit_sorties=tk.IntVar()
     checkmask = tk.Checkbutton(redctct, text=" Obligation du port du masque dans les espaces publics", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=mask,bg="#202020",command=lambda: contagion() if mask.get() else lowcontagion(confin))
     checkmask.grid(row=1, column=0,sticky=tk.W,padx=0.009*l,pady=0.009*l)
     checkgstbarr = tk.Checkbutton(redctct, text=" Sensibilisation aux gestes barrières", fg="white",selectcolor='black',font=("Helvetica Neue", int(0.01*l)),variable=gstbarr,bg="#202020",command=lambda: contagion() if gstbarr.get() else lowcontagion(confin))
@@ -64,8 +58,9 @@ Ainsi, l'isolement des positifs modifie :
 - réduire de 15% β0 et βe car les tests sont le seul moyen pour une personne n'ayant pas de symtomes de savoir qu'elle est infectée pour qu'elle prenne
   en conséquence des mesures pour se protéger et protéger les autres
 
-Il en va de même pour la mise en place de stratégies de dépistage cette fois ci c'est tout les beta
+Il en va de même pour la mise en place de stratégies de dépistage cette fois ci c'est tout les beta, avec des coefficients différents
 """
+
 def depistage():
     data.loc[data["nom"]=="tests","val"]=1000000
 
@@ -89,16 +84,16 @@ def arretisolement(isolated):
 def contagion():
     data.loc[data["nom"]=="βe","val"]=data.loc[data["nom"]=="βe","val"].values[0]*0.85
     data.loc[data["nom"]=="β0","val"]=data.loc[data["nom"]=="β0","val"].values[0]*0.85
-    data.loc[data["nom"]=="β1","val"]=data.loc[data["nom"]=="β1","val"].values[0]*0.85
-    data.loc[data["nom"]=="β2","val"]=data.loc[data["nom"]=="β2","val"].values[0]*0.85
-    data.loc[data["nom"]=="β3","val"]=data.loc[data["nom"]=="β3","val"].values[0]*0.85
+    data.loc[data["nom"]=="β1","val"]=data.loc[data["nom"]=="β1","val"].values[0]*0.90
+    data.loc[data["nom"]=="β2","val"]=data.loc[data["nom"]=="β2","val"].values[0]*0.90
+    data.loc[data["nom"]=="β3","val"]=data.loc[data["nom"]=="β3","val"].values[0]*0.90
     confin=True
     return confin
 
 def lowcontagion(confin):
     if confin == True:
-      data.loc[data["nom"]=="βe","val"]=data.loc[data["nom"]=="βe","val"].values[0]*0.85
-      data.loc[data["nom"]=="β0","val"]=data.loc[data["nom"]=="β0","val"].values[0]*0.85
-      data.loc[data["nom"]=="β1","val"]=data.loc[data["nom"]=="β1","val"].values[0]*0.85
-      data.loc[data["nom"]=="β2","val"]=data.loc[data["nom"]=="β2","val"].values[0]*0.85
-      data.loc[data["nom"]=="β3","val"]=data.loc[data["nom"]=="β3","val"].values[0]*0.85
+      data.loc[data["nom"]=="βe","val"]=data.loc[data["nom"]=="βe","val"].values[0]/0.85
+      data.loc[data["nom"]=="β0","val"]=data.loc[data["nom"]=="β0","val"].values[0]/0.85
+      data.loc[data["nom"]=="β1","val"]=data.loc[data["nom"]=="β1","val"].values[0]/0.90
+      data.loc[data["nom"]=="β2","val"]=data.loc[data["nom"]=="β2","val"].values[0]/0.90
+      data.loc[data["nom"]=="β3","val"]=data.loc[data["nom"]=="β3","val"].values[0]/0.90

@@ -1,53 +1,57 @@
 import tkinter as tk
 import gui_components.actions as a
-from graphs.SEIR_model import newvalues, t, S, E0,E1, I, I0,I1, I2, I3, D, R,conta,testing
+from graphs.SEIR_model import newvalues,I,I0,I2,I3,D,R,conta,testing
+
+"""Cette fonction crée les cases contenant les statistiques"""
 
 def stats(mainapp,l):
     #Création du bandeau supérieur
     stframe = tk.Frame(mainapp, background="#303030",width=1,height=1)
     stframe.grid(row=1,column=0, columnspan=2)
 
-    ######################################################################################################      
+    # Création de la case affichant le nombre de cas
     cas = tk.Frame(stframe)
     cas.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     cas.grid(row=0, column=0,padx=0.009*l, pady=(0,0.009*l))
     
-    ###################################################################################################### 
+    # Création de la case affichant le nombre de contagieux
     contagieux = tk.Frame(stframe)
     contagieux.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     contagieux.grid(row=0, column=1,pady=(0,0.009*l))
 
-    ###################################################################################################### 
+    #Création de la case affichant le nombre de guerisons
     guerisons = tk.Frame(stframe)
     guerisons.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     guerisons.grid(row=0, column=2,padx=(0.009*l), pady=(0,0.009*l))
 
-    ###################################################################################################### 
+    #Création de la case affichant le nombre d'hospitalisés
     hospitalisés = tk.Frame(stframe)
     hospitalisés.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     hospitalisés.grid(row=0, column=3,pady=(0,0.009*l))  
 
-    ###################################################################################################### 
+    #Création de la case affichant le nombre de personnes en réanimation
     rea = tk.Frame(stframe)  
     rea.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     rea.grid(row=0, column=4,padx=(0.009*l), pady=(0,0.009*l))
 
-    ###################################################################################################### 
+    #Création de la case affichant le nombre de personnes décedés
     deces = tk.Frame(stframe)
     deces.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     deces.grid(row=0, column=5, pady=(0,0.009*l))
 
-    ###################################################################################################### 
+    #Création de la case affichant le nombre d'assymptomatiques
     assymptomatiques = tk.Frame(stframe)
     assymptomatiques.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")
     assymptomatiques.grid(row=0, column=6,padx=(0.009*l), pady=(0,0.009*l))
 
-    ###################################################################################################### 
+    #Création de la case affichant le nombre de tests par jour
     tests = tk.Frame(stframe)
     tests.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black", bg="#202020")    
     tests.grid(row=0, column=7,padx=(0,0.009*l), pady=(0,0.009*l))
 
     return [cas, contagieux, guerisons, hospitalisés, rea, deces, assymptomatiques, tests,stframe]
+
+"""Cette fonction mets a jour les statistiques"""
 
 def updatestats(n,l,U):
     total_cas = tk.Label(U[0], text="Total des Cas", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"),width=int(0.01*l), fg="blue")
