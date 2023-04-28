@@ -26,7 +26,6 @@ def actualisation(n=0):
     global g
     if n >= 400:
         return
-    print(bn.redem)
     if bn.redem == "finish":
         n=0
         g=grph.graphs_gui(mainapp,l,h)
