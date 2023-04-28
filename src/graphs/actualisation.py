@@ -4,8 +4,8 @@ g=["ax","ax2","ax3","canvas","canvas2","canvas3"]
 
 # Création du canevas pour afficher le graphique
 def updategraph(n,mainapp,l,h,g):
-    g[0].plot(t, S, 'blue', label='S : population saine')
-    g[0].plot(t, I1, 'cyan', label='I1 : nb infections')
+    g[0].plot(t, S, 'green', label='S : population saine')
+    g[0].plot(t, I1, 'blue', label='I1 : nb infections')
     g[0].plot(t, R, 'white', label="R : nb retirés")
     if not g[0].legend_:
         g[0].legend(fontsize="5",facecolor='#303030',labelcolor="white")

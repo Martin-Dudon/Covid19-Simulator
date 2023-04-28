@@ -14,7 +14,7 @@ def banner(mainapp,l):
     
     # Logo Covid
     global img
-    img = tk.PhotoImage(file="data/coronavirus.png")
+    img = tk.PhotoImage(file="src/data/coronavirus.png")
     img = img.subsample(int(10000*1/l), int(10000*1/l))
     logocorona = tk.Label(frame, image=img, background="#202020")
     logocorona.grid(row=0,column=0, padx=0.009*l, pady=0.012*l)

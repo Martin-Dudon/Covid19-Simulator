@@ -48,7 +48,7 @@ conta=[0]
 testing =[0]
 
 # On importe le fichier csv contenant les valeurs des différents paramètres
-data = pd.read_csv("graphs/data.csv",sep=";")
+data = pd.read_csv("src/graphs/data.csv",sep=";")
 
 # La fonction newvalues calcule les valeurs au jour n
 
