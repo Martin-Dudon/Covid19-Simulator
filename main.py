@@ -29,7 +29,6 @@ def actualisation(n=0):
     if bn.redem == "finish":
         n=0
         g=grph.graphs_gui(mainapp,l,h)
-        bn.redem == True
     act.updategraph(n,mainapp,l,h,g)
     st.updatestats(n,l,U)
     bn.compteur(frame,n,l)

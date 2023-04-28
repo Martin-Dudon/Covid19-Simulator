@@ -10,7 +10,7 @@ def banner(mainapp,l):
     
     # Texte présentation
     label = tk.Label(frame, text="Simulation de la progression de l'épidémie de Covid-19 en fonction des mesures appliquées",font=("Helvetica Neue", int(0.014*l),"bold"), fg="white",bg="#202020")
-    label.grid(row=0, column=1,padx=(0,0.03*l))
+    label.grid(row=0, column=1,padx=(0,0.01*l))
     
     # Logo Covid
     global img
