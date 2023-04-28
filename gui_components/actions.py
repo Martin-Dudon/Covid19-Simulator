@@ -11,7 +11,7 @@ def action(mainapp,l):
     ######################################################################################################      
     depister = tk.Frame(actframe)
     depister.configure(highlightbackground="black", highlightthickness=1, highlightcolor="black",bg="#202020")
-    depister.grid(row=0, column=0,sticky="nsew",ipadx=0.05*l,ipady=0.015*l)
+    depister.grid(row=0, column=0,sticky="nsew",ipadx=0.05*l,ipady=0.01*l,pady=(0,0.009*l))
 
 
     txtdepister = tk.Label(depister, text="Mesures de dépistage", bg="#202020", font=("Helvetica Neue", int(0.012*l),"underline"), fg="white")

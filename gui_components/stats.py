@@ -92,7 +92,7 @@ def updatestats(n,l,U):
     jr_dc = tk.Label(U[5],text=f"{int(D[n+1]-D[n])} /jrs", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"),width=int(0.01*l), fg="black")
     jr_dc.grid(row=2, column=0, pady=(0,0.006*l))
 
-    total_assy= tk.Label(U[6], text="Asymptomatiques", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"),width=int(0.0135*l), fg="#2FC1DE")
+    total_assy= tk.Label(U[6], text="Asymptomatiques", bg="#202020", font=("Helvetica Neue", int(0.013*l),"bold"),width=int(0.014*l), fg="#2FC1DE")
     total_assy.grid(row=0, column=0,padx=0.005*l)
     total_assynb = tk.Label(U[6], text=str(int(I0[n])), bg="#202020", font=("Helvetica Neue",int(0.015*l),"bold"),width=int(0.01*l), fg="#2FC1DE")
     total_assynb.grid(row=1, column=0)

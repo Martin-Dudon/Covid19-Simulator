@@ -10,7 +10,7 @@ def banner(mainapp,l):
     
     # Texte présentation
     label = tk.Label(frame, text="Simulation de la progression de l'épidémie de Covid-19 en fonction des mesures appliquées",font=("Helvetica Neue", int(0.014*l),"bold"), fg="white",bg="#202020")
-    label.grid(row=0, column=1,padx=(0,0.12*l))
+    label.grid(row=0, column=1,padx=(0,0.07*l))
     
     # Logo Covid
     global img
@@ -27,8 +27,12 @@ def banner(mainapp,l):
     speed_button = tk.Label(frame, text="x 2", font=("Helvetica Neue", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
     speed_button.grid(row=0, column=5, ipadx=0.009*l, ipady=0.007*l,padx=(0,0.009*l))
     speed_button.bind("<Button-1>", lambda event: speed(speed_button,l))
-    return frame
 
+    start_button = tk.Label(frame, text="  START   ", font=("Helvetica Neue", int(0.012*l),"bold"), fg="white", bg="#202020",bd=1, relief="solid")
+    start_button.grid(row=0, column=6, ipadx=0.009*l, ipady=0.007*l,padx=(0,0.009*l))
+    start_button.bind("<Button-1>", lambda event: start(start_button,l))
+    
+    return frame
     
 
 def compteur(frame,n,l): 
@@ -36,6 +40,7 @@ def compteur(frame,n,l):
     label2.grid(row=0, column=2, padx=0.009*l)
 
 global lecture
+global redem
 lecture=True
 redem=False
 sp=1
@@ -59,6 +64,11 @@ def speed(speed_button,l):
         sp+=1
     speed_button.configure(text=f"x {sp+1}", font=("Helvetica Neue", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
 
-def restart():
+def start(start_button,l):
     global redem
-    redem=True
+    if redem==False or redem=="finish":
+        redem=True
+        start_button.configure(text="RESTART", font=("Play", int(0.012*l),"bold"), fg="white", bg="#202020",bd=1, relief="solid")
+    else:
+        redem="finish"
+        start_button.configure(text="  START   ", font=("Play", int(0.012*l),"bold"), fg="white", bg="#202020",bd=1, relief="solid")

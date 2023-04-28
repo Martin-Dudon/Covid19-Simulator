@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import gui_components.banner as bn
 
 
 """
@@ -52,6 +53,15 @@ data = pd.read_csv("graphs/data.csv",sep=";")
 # La fonction newvalues calcule les valeurs au jour n
 
 def newvalues(n):
+    if bn.redem == "finish":
+        for lst in [S, E0, E1, I0, I1, I2, I3, I, D, Ddaily, R, conta, testing,t]:
+            lst.clear()
+            if lst==E0:
+                lst.append(1)
+            elif lst == S:
+                lst.append(N[0]-1)
+            else :
+                lst.append(0)
     βe,β0,β1,β2,β3,α0,α1,f,γ0,γ1,γ2,γ3,p1,p2,μ,test=data["val"].astype(float)
     S.append(S[n]-(βe*E1[n]+β0*I0[n]+β1*I1[n]+β2*I2[n]+β3*I3[n])*S[n])
     E0.append(E0[n]+(βe*E1[n]+β0*I0[n]+β1*I1[n]+β2*I2[n]+β3*I3[n])*S[n]-α0*E0[n])

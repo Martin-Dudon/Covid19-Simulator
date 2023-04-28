@@ -10,12 +10,11 @@ l = 1000#mainapp.winfo_screenwidth()#
 h =820 #mainapp.winfo_screenheight()# 
 print(l,h)
 
-mainapp.geometry(f"{1280}x{700}+0+0") # Configure la géométrie de la fenêtre # Bloque le redimensionnement de la fenêtre
+mainapp.geometry(f"{1280}x{695}+0+0") # Configure la géométrie de la fenêtre # Bloque le redimensionnement de la fenêtre
 mainapp.title("SEIR model simulation") # Configure le titre de la fenêtre
 mainapp['bg']="#303030" # Configure la couleur de fond de la fenêtre
 
 frame=bn.banner(mainapp,l)
-global U
 U=st.stats(mainapp,l)
 a.action(mainapp,l)
 
@@ -24,18 +23,22 @@ a.action(mainapp,l)
 g=grph.graphs_gui(mainapp,l,h)
 
 def actualisation(n=0):
-    global U
+    global g
     if n >= 400:
         return
-    if bn.redem == True:
-        mainapp.destroy()
+    print(bn.redem)
+    if bn.redem == "finish":
+        n=0
+        g=grph.graphs_gui(mainapp,l,h)
     act.updategraph(n,mainapp,l,h,g)
     st.updatestats(n,l,U)
     bn.compteur(frame,n,l)
-
+    while bn.redem == False:
+        mainapp.update()
     while bn.lecture == False:
             mainapp.update() 
     mainapp.after(int(100/bn.sp), actualisation, n+1)
+
 
 actualisation()
 # Boucle principale
