@@ -53,7 +53,7 @@ data = pd.read_csv("src/graphs/data.csv",sep=";")
 # La fonction newvalues calcule les valeurs au jour n
 
 def newvalues(n):
-    if bn.redem == "finish":
+    if bn.restart == "finish":
         for lst in [S, E0, E1, I0, I1, I2, I3, I, D, Ddaily, R, conta, testing,t]:
             lst.clear()
             if lst==E0:

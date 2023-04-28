@@ -40,9 +40,9 @@ def compteur(frame,n,l):
     label2.grid(row=0, column=2, padx=0.009*l)
 
 global lecture
-global redem
+global restart
 lecture=True
-redem=False
+restart=False
 sp=1
 
 def play():
@@ -65,10 +65,10 @@ def speed(speed_button,l):
     speed_button.configure(text=f"x {sp+1}", font=("Helvetica Neue", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
 
 def start(start_button,l):
-    global redem
-    if redem==False or redem=="finish":
-        redem=True
+    global restart
+    if restart==False or restart=="finish":
+        restart=True
         start_button.configure(text="RESTART", font=("Play", int(0.012*l),"bold"), fg="white", bg="#202020",bd=1, relief="solid")
     else:
-        redem="finish"
+        restart="finish"
         start_button.configure(text="  START   ", font=("Play", int(0.012*l),"bold"), fg="white", bg="#202020",bd=1, relief="solid")
