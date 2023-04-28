@@ -10,7 +10,7 @@ def banner(mainapp,l):
     
     # Texte présentation
     label = tk.Label(frame, text="Simulation de la progression de l'épidémie de Covid-19 en fonction des mesures appliquées",font=("Helvetica Neue", int(0.014*l),"bold"), fg="white",bg="#202020")
-    label.grid(row=0, column=1,padx=(0,0.11*l))
+    label.grid(row=0, column=1,padx=(0,0.12*l))
     
     # Logo Covid
     global img
@@ -48,7 +48,7 @@ def pause(pause_button,l):
     global lecture
     if lecture==True:
         lecture=False
-        pause_button.configure(text="▶", font=("Play", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
+        pause_button.configure(text=" ▶ ", font=("Play", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
     else:
         lecture=True
         pause_button.configure(text="⏸", font=("Pause", int(0.012*l)), fg="white", bg="#202020",bd=1, relief="solid")
