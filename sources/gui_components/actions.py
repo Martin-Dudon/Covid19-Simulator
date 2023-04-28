@@ -3,7 +3,7 @@ from graphs.SEIR_model import data
 
 def action(mainapp,l):
     #Création du bandeau 
-    actframe = tk.Frame(mainapp)
+    actframe = tk.Frame(mainapp, background="#202020")
     actframe.grid(row=3,column=1,sticky=tk.W,pady=(0,0.009*l),padx=(0.009*l))
 
     #Création du cadre pour les mesures de dépistage  
