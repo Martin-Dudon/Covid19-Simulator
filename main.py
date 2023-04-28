@@ -4,7 +4,6 @@ import gui_components.stats as st
 import gui_components.actions as a
 import graphs.actualisation as act
 import graphs.SEIR_graphs_tk as grph
-import gui_components.click_functions as c
 
 mainapp = tk.Tk()  # Crée une instance de la classe Tk
 l = 1000#mainapp.winfo_screenwidth()#
@@ -28,15 +27,15 @@ def actualisation(n=0):
     global U
     if n >= 400:
         return
-    if c.redem == True:
+    if bn.redem == True:
         mainapp.destroy()
     act.updategraph(n,mainapp,l,h,g)
     st.updatestats(n,l,U)
     bn.compteur(frame,n,l)
 
-    while c.lecture == False:
+    while bn.lecture == False:
             mainapp.update() 
-    mainapp.after(int(100/c.sp), actualisation, n+1)
+    mainapp.after(int(100/bn.sp), actualisation, n+1)
 
 actualisation()
 # Boucle principale
